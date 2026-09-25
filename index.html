@@ -2,7 +2,6 @@
 <html lang="id">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -25,9 +24,7 @@ body {
 }
 
 body {
-
     min-height: 100vh;
-
     padding: 20px;
 
     font-family:
@@ -46,9 +43,7 @@ body {
     color: #4e3458;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 }
 
@@ -58,12 +53,7 @@ body {
 ========================================================= */
 
 .game {
-
-    width: min(
-        1000px,
-        100%
-    );
-
+    width: min(1000px, 100%);
     text-align: center;
 }
 
@@ -73,15 +63,10 @@ body {
 ========================================================= */
 
 .title h1 {
-
     margin: 0;
 
     font-size:
-        clamp(
-            28px,
-            5vw,
-            48px
-        );
+        clamp(28px, 5vw, 48px);
 
     font-weight: 900;
 
@@ -89,14 +74,11 @@ body {
 
     text-shadow:
         0 4px white,
-        0 7px 15px
-        rgba(70,30,80,.15);
+        0 7px 15px rgba(70,30,80,.15);
 }
 
 .title p {
-
-    margin:
-        8px 0 18px;
+    margin: 8px 0 18px;
 
     font-size: 15px;
 
@@ -109,16 +91,10 @@ body {
 ========================================================= */
 
 .machine {
-
-    position: relative;
-
     width: 100%;
-
     padding: 18px;
 
-    border:
-        8px solid #63386e;
-
+    border: 8px solid #63386e;
     border-radius: 30px;
 
     background:
@@ -130,12 +106,8 @@ body {
         );
 
     box-shadow:
-
-        0 25px 55px
-        rgba(54,28,70,.35),
-
-        inset 0 0 20px
-        rgba(255,255,255,.3);
+        0 25px 55px rgba(54,28,70,.35),
+        inset 0 0 20px rgba(255,255,255,.3);
 }
 
 
@@ -144,18 +116,13 @@ body {
 ========================================================= */
 
 .marquee {
-
     position: relative;
 
     height: 78px;
-
     margin-bottom: 12px;
 
-    border:
-        5px solid #6b3b78;
-
-    border-radius:
-        18px;
+    border: 5px solid #6b3b78;
+    border-radius: 18px;
 
     background:
         linear-gradient(
@@ -163,26 +130,16 @@ body {
             #ffc5e2
         );
 
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     overflow: hidden;
 }
 
 .marquee span {
-
     font-size:
-        clamp(
-            22px,
-            4vw,
-            38px
-        );
+        clamp(22px, 4vw, 38px);
 
     font-weight: 900;
 
@@ -190,8 +147,7 @@ body {
 
     letter-spacing: 2px;
 
-    text-shadow:
-        0 2px white;
+    text-shadow: 0 2px white;
 }
 
 
@@ -200,55 +156,42 @@ body {
 ========================================================= */
 
 .window {
-
     position: relative;
 
     height: 540px;
 
     overflow: hidden;
 
-    border:
-        6px solid #5d3769;
-
-    border-radius:
-        18px;
+    border: 6px solid #5d3769;
+    border-radius: 18px;
 
     background:
-
         linear-gradient(
             180deg,
             rgba(255,255,255,.65),
             rgba(255,255,255,.15)
         ),
-
         #e8dcef;
 
     box-shadow:
-
-        inset 0 0 45px
-        rgba(70,35,90,.25);
+        inset 0 0 45px rgba(70,35,90,.25);
 }
 
-
 .window::after {
-
     content: "";
 
     position: absolute;
 
     top: -40%;
-
     left: 8%;
 
     width: 100px;
-
     height: 180%;
 
     background:
         rgba(255,255,255,.16);
 
-    transform:
-        rotate(15deg);
+    transform: rotate(15deg);
 
     z-index: 100;
 
@@ -261,12 +204,10 @@ body {
 ========================================================= */
 
 .rail {
-
     position: absolute;
 
     left: 5%;
     right: 5%;
-
     top: 28px;
 
     height: 14px;
@@ -274,16 +215,13 @@ body {
     border-radius: 20px;
 
     background:
-
         linear-gradient(
             #888,
             #333
         );
 
     box-shadow:
-
-        0 4px 7px
-        rgba(0,0,0,.3);
+        0 4px 7px rgba(0,0,0,.3);
 
     z-index: 30;
 }
@@ -294,49 +232,34 @@ body {
 ========================================================= */
 
 .carriage {
-
     position: absolute;
 
     top: 18px;
-
     left: 7%;
 
     width: 78px;
-
     height: 110px;
 
     z-index: 45;
 
     transition:
-
         left .45s
-        cubic-bezier(
-            .4,
-            0,
-            .2,
-            1
-        );
+        cubic-bezier(.4,0,.2,1);
 }
 
 .carriage-body {
-
     position: absolute;
 
     top: 0;
-
     left: 4px;
 
     width: 70px;
-
     height: 45px;
 
-    border:
-        4px solid #414141;
-
+    border: 4px solid #414141;
     border-radius: 12px;
 
     background:
-
         linear-gradient(
             145deg,
             #f4f4f4,
@@ -344,36 +267,28 @@ body {
         );
 
     box-shadow:
-
-        0 5px 8px
-        rgba(0,0,0,.25);
+        0 5px 8px rgba(0,0,0,.25);
 }
 
 .wheel {
-
     position: absolute;
 
     top: 14px;
 
     width: 19px;
-
     height: 19px;
 
-    border:
-        3px solid #111;
-
+    border: 3px solid #111;
     border-radius: 50%;
 
     background: #333;
 }
 
 .wheel.left {
-
     left: -9px;
 }
 
 .wheel.right {
-
     right: -9px;
 }
 
@@ -383,19 +298,15 @@ body {
 ========================================================= */
 
 .rope {
-
     position: absolute;
 
     left: 35px;
-
     top: 41px;
 
     width: 8px;
-
     height: 60px;
 
     background:
-
         linear-gradient(
             90deg,
             #555,
@@ -404,14 +315,8 @@ body {
         );
 
     transition:
-
         height .7s
-        cubic-bezier(
-            .4,
-            0,
-            .2,
-            1
-        );
+        cubic-bezier(.4,0,.2,1);
 
     z-index: 5;
 }
@@ -422,50 +327,36 @@ body {
 ========================================================= */
 
 .claw {
-
     position: absolute;
 
     left: 1px;
-
     top: 87px;
 
     width: 78px;
-
     height: 115px;
 
     transition:
-
         top .7s
-        cubic-bezier(
-            .4,
-            0,
-            .2,
-            1
-        );
+        cubic-bezier(.4,0,.2,1);
 
     z-index: 50;
 }
 
 .claw-head {
-
     position: absolute;
 
     top: 0;
-
     left: 19px;
 
     width: 40px;
-
     height: 30px;
 
-    border:
-        4px solid #444;
+    border: 4px solid #444;
 
     border-radius:
         50% 50% 40% 40%;
 
     background:
-
         linear-gradient(
             145deg,
             #eee,
@@ -476,23 +367,19 @@ body {
 }
 
 .finger {
-
     position: absolute;
 
     top: 23px;
 
     width: 18px;
-
     height: 67px;
 
-    border:
-        4px solid #444;
+    border: 4px solid #444;
 
     border-radius:
         10px 10px 20px 20px;
 
     background:
-
         linear-gradient(
             90deg,
             #777,
@@ -510,7 +397,6 @@ body {
 }
 
 .finger.left {
-
     left: 13px;
 
     transform:
@@ -518,7 +404,6 @@ body {
 }
 
 .finger.right {
-
     right: 13px;
 
     transform:
@@ -526,13 +411,11 @@ body {
 }
 
 .claw.closed .finger.left {
-
     transform:
         rotate(5deg);
 }
 
 .claw.closed .finger.right {
-
     transform:
         rotate(-5deg);
 }
@@ -543,7 +426,6 @@ body {
 ========================================================= */
 
 #ballPit {
-
     position: absolute;
 
     inset: 0;
@@ -552,15 +434,12 @@ body {
 }
 
 .ball {
-
     position: absolute;
 
     width: 105px;
-
     height: 105px;
 
-    background:
-        #f04d98;
+    background: #f04d98;
 
     transform:
         rotate(-45deg);
@@ -573,7 +452,6 @@ body {
         rgba(255,255,255,.85);
 
     box-shadow:
-
         inset -13px -15px 18px
         rgba(0,0,0,.18),
 
@@ -588,32 +466,25 @@ body {
 
 .ball::before,
 .ball::after {
-
     content: "";
 
     position: absolute;
 
     width: 105px;
-
     height: 105px;
 
     border-radius: 50%;
 
-    background:
-        inherit;
+    background: inherit;
 }
 
 .ball::before {
-
     top: -52px;
-
     left: 0;
 }
 
 .ball::after {
-
     top: 0;
-
     left: 52px;
 }
 
@@ -652,24 +523,15 @@ body {
 ========================================================= */
 
 .claw .ball {
+    position: absolute !important;
 
-    position:
-        absolute !important;
+    left: 50% !important;
+    top: 55px !important;
 
-    left:
-        50% !important;
+    bottom: auto !important;
 
-    top:
-        55px !important;
-
-    bottom:
-        auto !important;
-
-    width:
-        105px;
-
-    height:
-        105px;
+    width: 105px;
+    height: 105px;
 
     transform:
         translateX(-50%)
@@ -684,25 +546,20 @@ body {
 ========================================================= */
 
 .chute {
-
     position: absolute;
 
     right: 20px;
-
     bottom: 35px;
 
     width: 175px;
-
     height: 120px;
 
-    border:
-        5px solid #6e5677;
+    border: 5px solid #6e5677;
 
     border-radius:
         15px 15px 27px 27px;
 
     background:
-
         linear-gradient(
             #44364b,
             #151118
@@ -710,45 +567,34 @@ body {
 
     z-index: 28;
 
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 
     padding-bottom: 12px;
 
-    color:
-        #ffcce7;
+    color: #ffcce7;
 
     font-size: 13px;
-
     font-weight: bold;
 
     letter-spacing: 2px;
 }
 
 .chute::before {
-
     content: "";
 
     position: absolute;
 
     left: 16px;
-
     right: 16px;
-
     top: 13px;
 
     height: 55px;
 
     border-radius: 8px;
 
-    background:
-        #080609;
+    background: #080609;
 }
 
 
@@ -757,19 +603,15 @@ body {
 ========================================================= */
 
 .floor {
-
     position: absolute;
 
     left: 0;
-
     bottom: 0;
 
     width: 100%;
-
     height: 35px;
 
     background:
-
         linear-gradient(
             #8d5d94,
             #57365e
@@ -784,28 +626,20 @@ body {
 ========================================================= */
 
 .controls {
-
     margin-top: 14px;
-
     padding: 15px;
 
     border-radius: 14px;
 
     background:
-
         linear-gradient(
             #74477d,
             #50325b
         );
 
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     gap: 12px;
 
@@ -813,7 +647,6 @@ body {
 }
 
 button {
-
     border: none;
 
     cursor: pointer;
@@ -826,21 +659,16 @@ button {
 }
 
 button:active {
-
-    transform:
-        scale(.93);
+    transform: scale(.93);
 }
 
 .move {
-
     width: 65px;
-
     height: 54px;
 
     font-size: 25px;
 
     background:
-
         linear-gradient(
             #ae84c8,
             #754793
@@ -851,15 +679,12 @@ button:active {
 }
 
 .grab {
-
     min-width: 165px;
-
     height: 60px;
 
     font-size: 17px;
 
     background:
-
         linear-gradient(
             #ff78b9,
             #d72e88
@@ -870,7 +695,6 @@ button:active {
 }
 
 .status {
-
     width: 100%;
 
     color: white;
@@ -879,12 +703,10 @@ button:active {
 }
 
 .status span {
-
     color: #ffe0f0;
 }
 
 .message {
-
     min-height: 25px;
 
     margin-top: 12px;
@@ -900,7 +722,6 @@ button:active {
 ========================================================= */
 
 .popup {
-
     position: fixed;
 
     inset: 0;
@@ -912,27 +733,18 @@ button:active {
 
     display: none;
 
-    justify-content:
-        center;
-
-    align-items:
-        center;
+    justify-content: center;
+    align-items: center;
 
     z-index: 500;
 }
 
 .popup.show {
-
     display: flex;
 }
 
 .popup-box {
-
-    width:
-        min(
-            520px,
-            100%
-        );
+    width: min(520px, 100%);
 
     max-height: 92vh;
 
@@ -943,34 +755,24 @@ button:active {
     border-radius: 26px;
 
     background:
-
         linear-gradient(
             #fff,
             #fff3fa
         );
 
     box-shadow:
-
         0 25px 70px
         rgba(0,0,0,.4);
 
     text-align: center;
 
     animation:
-
         popupIn .45s
-        cubic-bezier(
-            .2,
-            .8,
-            .2,
-            1
-        );
+        cubic-bezier(.2,.8,.2,1);
 }
 
 @keyframes popupIn {
-
     from {
-
         opacity: 0;
 
         transform:
@@ -979,7 +781,6 @@ button:active {
     }
 
     to {
-
         opacity: 1;
 
         transform:
@@ -994,11 +795,9 @@ button:active {
 ========================================================= */
 
 .envelope-wrapper {
-
     position: relative;
 
     width: 370px;
-
     max-width: 100%;
 
     height: 420px;
@@ -1006,33 +805,26 @@ button:active {
     margin:
         15px auto 20px;
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        center;
-
-    align-items:
-        flex-end;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 
 /* =========================================================
-   KERTAS SURAT
+   LETTER
 ========================================================= */
 
 .letter-paper {
-
     position: absolute;
 
     left: 25px;
-
     right: 25px;
 
     bottom: 95px;
 
     min-height: 220px;
-
     max-height: 290px;
 
     padding:
@@ -1044,14 +836,12 @@ button:active {
         1px solid #ead6e1;
 
     background:
-
         linear-gradient(
             #ffffff,
             #fff8fc
         );
 
     box-shadow:
-
         0 5px 15px
         rgba(0,0,0,.16);
 
@@ -1065,53 +855,38 @@ button:active {
         translateY(100px);
 
     transition:
-
         transform .9s
-        cubic-bezier(
-            .2,
-            .8,
-            .2,
-            1
-        );
+        cubic-bezier(.2,.8,.2,1);
 }
 
 .letter-paper h3 {
-
     margin:
         0 0 14px;
 
-    color:
-        #b13c76;
+    color: #b13c76;
 
-    font-size:
-        19px;
+    font-size: 19px;
 }
 
 .letter-paper p {
-
     margin: 0;
 
-    color:
-        #554050;
+    color: #554050;
 
-    font-size:
-        15px;
+    font-size: 15px;
 
-    line-height:
-        1.65;
+    line-height: 1.65;
 }
 
 
 /* =========================================================
-   AMPLOP
+   ENVELOPE
 ========================================================= */
 
 .envelope {
-
     position: absolute;
 
     left: 10px;
-
     right: 10px;
 
     bottom: 20px;
@@ -1124,7 +899,6 @@ button:active {
     border-radius: 10px;
 
     background:
-
         linear-gradient(
             145deg,
             #ffdceb,
@@ -1132,98 +906,106 @@ button:active {
         );
 
     box-shadow:
-
         0 12px 20px
         rgba(90,35,75,.25);
 
     z-index: 3;
 }
 
-.envelope-left {
 
+/* =========================================================
+   ENVELOPE LEFT
+========================================================= */
+
+.envelope-left {
     position: absolute;
 
     left: 0;
-
     bottom: 0;
 
-    width: 0;
+    width: 50%;
+    height: 100%;
 
-    height: 0;
+    background: #e58db5;
 
-    border-left:
-        170px solid #e58db5;
-
-    border-top:
-        112px solid transparent;
+    clip-path:
+        polygon(
+            0 0,
+            100% 100%,
+            0 100%
+        );
 
     z-index: 4;
 }
 
-.envelope-right {
 
+/* =========================================================
+   ENVELOPE RIGHT
+========================================================= */
+
+.envelope-right {
     position: absolute;
 
     right: 0;
-
     bottom: 0;
 
-    width: 0;
+    width: 50%;
+    height: 100%;
 
-    height: 0;
+    background: #e58db5;
 
-    border-right:
-        170px solid #e58db5;
-
-    border-top:
-        112px solid transparent;
+    clip-path:
+        polygon(
+            100% 0,
+            100% 100%,
+            0 100%
+        );
 
     z-index: 4;
 }
 
-.envelope-flap {
 
+/* =========================================================
+   ENVELOPE FLAP
+========================================================= */
+
+.envelope-flap {
     position: absolute;
 
     left: 0;
-
     top: 0;
 
-    width: 0;
+    width: 100%;
+    height: 58%;
 
-    height: 0;
+    background: #f2a1c3;
 
-    border-left:
-        170px solid transparent;
-
-    border-right:
-        170px solid transparent;
-
-    border-top:
-        128px solid #f2a1c3;
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
 
     transform-origin:
         top center;
 
     transition:
-
         transform .8s
-        cubic-bezier(
-            .2,
-            .8,
-            .2,
-            1
-        );
+        cubic-bezier(.2,.8,.2,1);
 
     z-index: 7;
 }
 
-.envelope-heart {
 
+/* =========================================================
+   HEART ENVELOPE
+========================================================= */
+
+.envelope-heart {
     position: absolute;
 
     left: 50%;
-
     top: 75px;
 
     transform:
@@ -1241,12 +1023,11 @@ button:active {
 
 
 /* =========================================================
-   SURAT DIBUKA
+   ENVELOPE OPEN
 ========================================================= */
 
 .envelope-wrapper.open
 .letter-paper {
-
     transform:
         translateY(-90px);
 
@@ -1255,24 +1036,21 @@ button:active {
 
 .envelope-wrapper.open
 .envelope-flap {
-
     transform:
         rotateX(180deg);
 }
 
 .envelope-wrapper.open
 .envelope-heart {
-
     opacity: 0;
 }
 
 
 /* =========================================================
-   FOTO
+   PHOTO
 ========================================================= */
 
 .photo {
-
     display: block;
 
     width: 100%;
@@ -1287,7 +1065,6 @@ button:active {
     border-radius: 15px;
 
     box-shadow:
-
         0 8px 20px
         rgba(0,0,0,.25);
 }
@@ -1298,7 +1075,6 @@ button:active {
 ========================================================= */
 
 .zonk {
-
     font-size: 105px;
 
     animation:
@@ -1307,25 +1083,20 @@ button:active {
 }
 
 @keyframes shake {
-
     from {
-        transform:
-            rotate(-8deg);
+        transform: rotate(-8deg);
     }
 
     to {
-        transform:
-            rotate(8deg);
+        transform: rotate(8deg);
     }
 }
 
 .close-btn {
-
     padding:
         13px 30px;
 
     background:
-
         linear-gradient(
             #ed69aa,
             #c32b79
@@ -1340,24 +1111,18 @@ button:active {
 ========================================================= */
 
 .birth-gate {
-
     position: fixed;
 
     inset: 0;
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        center;
-
-    align-items:
-        center;
+    justify-content: center;
+    align-items: center;
 
     padding: 20px;
 
     background:
-
         radial-gradient(
             circle at 50% 20%,
             #fff5fb 0%,
@@ -1372,18 +1137,13 @@ button:active {
 }
 
 .birth-card {
-
     width:
-        min(
-            430px,
-            100%
-        );
+        min(430px, 100%);
 
     padding:
         38px 30px;
 
-    border-radius:
-        28px;
+    border-radius: 28px;
 
     background:
         rgba(255,255,255,.97);
@@ -1392,92 +1152,67 @@ button:active {
         0 25px 70px
         rgba(65,30,75,.3);
 
-    text-align:
-        center;
+    text-align: center;
 }
 
 .birth-heart {
+    font-size: 70px;
 
-    font-size:
-        70px;
-
-    margin-bottom:
-        8px;
+    margin-bottom: 8px;
 
     animation:
         birthBeat 1.3s infinite;
 }
 
 .birth-card h1 {
-
     margin:
         0 0 10px;
 
-    color:
-        #9b3f78;
+    color: #9b3f78;
 
-    font-size:
-        30px;
+    font-size: 30px;
 }
 
 .birth-card p {
-
     margin:
         0 0 22px;
 
-    color:
-        #684d70;
+    color: #684d70;
 
-    line-height:
-        1.5;
+    line-height: 1.5;
 }
 
 .birth-card label {
+    display: block;
 
-    display:
-        block;
+    margin-bottom: 8px;
 
-    margin-bottom:
-        8px;
+    color: #71436f;
 
-    color:
-        #71436f;
-
-    font-weight:
-        bold;
+    font-weight: bold;
 }
 
 .birth-card input {
+    width: 100%;
 
-    width:
-        100%;
-
-    padding:
-        14px;
+    padding: 14px;
 
     border:
         2px solid #e2a4c7;
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 
-    background:
-        #fff8fc;
+    background: #fff8fc;
 
-    color:
-        #573b58;
+    color: #573b58;
 
-    font-size:
-        16px;
+    font-size: 16px;
 
-    outline:
-        none;
+    outline: none;
 }
 
 .birth-card input:focus {
-
-    border-color:
-        #c75591;
+    border-color: #c75591;
 
     box-shadow:
         0 0 0 3px
@@ -1485,21 +1220,15 @@ button:active {
 }
 
 .start-game {
+    width: 100%;
 
-    width:
-        100%;
+    margin-top: 18px;
 
-    margin-top:
-        18px;
+    padding: 15px;
 
-    padding:
-        15px;
+    border: none;
 
-    border:
-        none;
-
-    border-radius:
-        14px;
+    border-radius: 14px;
 
     background:
         linear-gradient(
@@ -1507,24 +1236,19 @@ button:active {
             #d72e88
         );
 
-    color:
-        white;
+    color: white;
 
-    font-size:
-        16px;
+    font-size: 16px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     box-shadow:
         0 5px 0 #8e205c;
 }
 
 .start-game:active {
-
     transform:
         translateY(3px);
 
@@ -1533,34 +1257,24 @@ button:active {
 }
 
 .birth-error {
+    min-height: 22px;
 
-    min-height:
-        22px;
+    margin-top: 12px;
 
-    margin-top:
-        12px;
+    color: #d04a71;
 
-    color:
-        #d04a71;
+    font-size: 14px;
 
-    font-size:
-        14px;
-
-    font-weight:
-        bold;
+    font-weight: bold;
 }
 
 @keyframes birthBeat {
-
-    0%,
-    100% {
-        transform:
-            scale(1);
+    0%, 100% {
+        transform: scale(1);
     }
 
     50% {
-        transform:
-            scale(1.12);
+        transform: scale(1.12);
     }
 }
 
@@ -1572,112 +1286,488 @@ button:active {
 @media (max-width: 650px) {
 
     body {
-
-        padding: 8px;
+        padding: 6px;
+        align-items: flex-start;
     }
+
+    .game {
+        width: 100%;
+    }
+
+
+    /* TITLE */
+
+    .title h1 {
+        font-size:
+            clamp(20px, 6.5vw, 30px);
+
+        line-height: 1.1;
+    }
+
+    .title p {
+        font-size: 12px;
+
+        margin:
+            5px 0 10px;
+    }
+
+
+    /* MACHINE */
 
     .machine {
+        padding: 6px;
 
-        padding: 9px;
+        border-width: 4px;
 
-        border-width: 5px;
+        border-radius: 18px;
     }
+
+
+    /* MARQUEE */
+
+    .marquee {
+        height: 48px;
+
+        margin-bottom: 6px;
+
+        border-width: 3px;
+
+        border-radius: 11px;
+    }
+
+    .marquee span {
+        font-size:
+            clamp(15px, 5vw, 21px);
+
+        letter-spacing: 1px;
+    }
+
+
+    /* WINDOW */
 
     .window {
+        height: 350px;
 
-        height: 470px;
+        border-width: 4px;
+
+        border-radius: 12px;
     }
 
+
+    /* RAIL */
+
+    .rail {
+        top: 18px;
+
+        height: 9px;
+    }
+
+
+    /* CARRIAGE */
+
+    .carriage {
+        top: 10px;
+
+        width: 60px;
+        height: 85px;
+    }
+
+    .carriage-body {
+        width: 52px;
+        height: 34px;
+
+        border-width: 3px;
+
+        border-radius: 9px;
+    }
+
+    .wheel {
+        top: 11px;
+
+        width: 15px;
+        height: 15px;
+
+        border-width: 2px;
+    }
+
+    .wheel.left {
+        left: -7px;
+    }
+
+    .wheel.right {
+        right: -7px;
+    }
+
+
+    /* ROPE */
+
+    .rope {
+        left: 27px;
+
+        top: 33px;
+
+        width: 6px;
+
+        height: 45px;
+    }
+
+
+    /* CLAW */
+
+    .claw {
+        left: -3px;
+
+        top: 70px;
+
+        width: 66px;
+        height: 90px;
+    }
+
+    .claw-head {
+        left: 16px;
+
+        width: 34px;
+        height: 25px;
+
+        border-width: 3px;
+    }
+
+    .finger {
+        top: 20px;
+
+        width: 15px;
+        height: 52px;
+
+        border-width: 3px;
+    }
+
+    .finger.left {
+        left: 10px;
+    }
+
+    .finger.right {
+        right: 10px;
+    }
+
+
+    /* LOVE */
+
     .ball {
+        width: 62px;
+        height: 62px;
 
-        width: 78px;
-
-        height: 78px;
+        border-width: 3px;
     }
 
     .ball::before,
     .ball::after {
-
-        width: 78px;
-
-        height: 78px;
+        width: 62px;
+        height: 62px;
     }
 
     .ball::before {
-
-        top: -39px;
+        top: -31px;
     }
 
     .ball::after {
-
-        left: 39px;
+        left: 31px;
     }
 
     .claw .ball {
-
-        width: 78px;
-
-        height: 78px;
+        width: 62px;
+        height: 62px;
     }
+
+
+    /* PRIZE BOX */
 
     .chute {
+        width: 100px;
+        height: 65px;
 
-        width: 125px;
+        right: 6px;
+        bottom: 24px;
 
-        height: 90px;
+        border-width: 3px;
 
-        right: 8px;
+        border-radius:
+            10px 10px 18px 18px;
+
+        font-size: 9px;
+
+        letter-spacing: 1px;
     }
 
+    .chute::before {
+        left: 8px;
+        right: 8px;
+
+        top: 7px;
+
+        height: 30px;
+    }
+
+
+    /* FLOOR */
+
+    .floor {
+        height: 25px;
+    }
+
+
+    /* CONTROLS */
+
+    .controls {
+        margin-top: 7px;
+
+        padding:
+            8px 6px;
+
+        gap: 7px;
+
+        border-radius: 10px;
+    }
+
+    .move {
+        width: 46px;
+        height: 42px;
+
+        font-size: 19px;
+    }
+
+    .grab {
+        flex: 1;
+
+        min-width: 0;
+
+        height: 45px;
+
+        padding: 0 5px;
+
+        font-size: 13px;
+    }
+
+    .status {
+        font-size: 11px;
+    }
+
+    .message {
+        min-height: 18px;
+
+        margin-top: 6px;
+
+        font-size: 11px;
+    }
+
+
+    /* POPUP */
+
+    .popup {
+        padding: 10px;
+    }
+
+    .popup-box {
+        width: 100%;
+
+        max-width: 370px;
+
+        max-height: 94vh;
+
+        padding:
+            18px 12px;
+
+        border-radius: 20px;
+    }
+
+    .popup-box h2 {
+        font-size: 20px;
+    }
+
+
+    /* ENVELOPE */
+
     .envelope-wrapper {
+        width: 100%;
 
-        width: 320px;
+        max-width: 300px;
 
-        height: 400px;
+        height: 320px;
+
+        margin:
+            10px auto 15px;
     }
 
     .envelope {
+        left: 0;
+        right: 0;
 
-        left: 5px;
+        bottom: 10px;
 
-        right: 5px;
+        height: 175px;
+
+        border-width: 3px;
     }
 
-    .envelope-flap {
+    .envelope-heart {
+        top: 57px;
 
-        border-left-width:
-            151px;
-
-        border-right-width:
-            151px;
+        font-size: 23px;
     }
 
-    .envelope-left {
 
-        border-left-width:
-            151px;
-    }
-
-    .envelope-right {
-
-        border-right-width:
-            151px;
-    }
+    /* LETTER */
 
     .letter-paper {
+        left: 12px;
+        right: 12px;
 
-        left: 18px;
+        bottom: 70px;
 
-        right: 18px;
+        min-height: 165px;
 
-        max-height: 280px;
+        max-height: 225px;
 
-        padding: 20px;
+        padding: 15px;
+    }
+
+    .letter-paper h3 {
+        font-size: 17px;
+
+        margin-bottom: 8px;
+    }
+
+    .letter-paper p {
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+    .envelope-wrapper.open
+    .letter-paper {
+        transform:
+            translateY(-60px);
+    }
+
+
+    /* PHOTO */
+
+    .photo {
+        max-height: 55vh;
+
+        margin:
+            10px auto;
+
+        border-radius: 10px;
+    }
+
+
+    /* ZONK */
+
+    .zonk {
+        font-size: 75px;
+    }
+
+
+    /* CLOSE */
+
+    .close-btn {
+        padding:
+            11px 24px;
+
+        font-size: 14px;
+    }
+
+
+    /* BIRTH */
+
+    .birth-gate {
+        padding: 12px;
+    }
+
+    .birth-card {
+        width: 100%;
+
+        max-width: 360px;
+
+        padding:
+            28px 20px;
+
+        border-radius: 22px;
+    }
+
+    .birth-heart {
+        font-size: 55px;
+    }
+
+    .birth-card h1 {
+        font-size: 25px;
+    }
+
+    .birth-card p {
+        font-size: 14px;
     }
 }
 
-</style>
 
+/* =========================================================
+   HP KECIL
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .title h1 {
+        font-size: 20px;
+    }
+
+    .window {
+        height: 320px;
+    }
+
+    .ball {
+        width: 56px;
+        height: 56px;
+    }
+
+    .ball::before,
+    .ball::after {
+        width: 56px;
+        height: 56px;
+    }
+
+    .ball::before {
+        top: -28px;
+    }
+
+    .ball::after {
+        left: 28px;
+    }
+
+    .claw .ball {
+        width: 56px;
+        height: 56px;
+    }
+
+    .chute {
+        width: 90px;
+        height: 60px;
+    }
+
+    .grab {
+        font-size: 12px;
+    }
+
+    .envelope-wrapper {
+        max-width: 270px;
+
+        height: 300px;
+    }
+
+    .envelope {
+        height: 160px;
+    }
+
+}
+</style>
 </head>
 
 
@@ -1714,7 +1804,13 @@ button:active {
 
         <p>
             Sebelum bermain di<br>
-            <strong>Love Claw Machine</strong><br>
+
+            <strong>
+                Love Claw Machine
+            </strong>
+
+            <br>
+
             masukkan tanggal lahir dulu 🎂
         </p>
 
@@ -1751,7 +1847,6 @@ button:active {
 
 <div class="game">
 
-
     <div class="title">
 
         <h1>
@@ -1782,11 +1877,11 @@ button:active {
             id="window"
         >
 
-
             <div class="rail"></div>
 
-
-            <div id="ballPit"></div>
+            <div
+                id="ballPit">
+            </div>
 
 
             <div
@@ -1794,11 +1889,17 @@ button:active {
                 id="carriage"
             >
 
-                <div class="carriage-body"></div>
+                <div
+                    class="carriage-body">
+                </div>
 
-                <div class="wheel left"></div>
+                <div
+                    class="wheel left">
+                </div>
 
-                <div class="wheel right"></div>
+                <div
+                    class="wheel right">
+                </div>
 
                 <div
                     class="rope"
@@ -1811,11 +1912,17 @@ button:active {
                     id="claw"
                 >
 
-                    <div class="claw-head"></div>
+                    <div
+                        class="claw-head">
+                    </div>
 
-                    <div class="finger left"></div>
+                    <div
+                        class="finger left">
+                    </div>
 
-                    <div class="finger right"></div>
+                    <div
+                        class="finger right">
+                    </div>
 
                 </div>
 
@@ -1837,7 +1944,6 @@ button:active {
 
 
         <div class="controls">
-
 
             <button
                 class="move"
@@ -1978,14 +2084,14 @@ const prizes = [
         type: "letter",
 
         text:
-        "Terima kasih sudah menjadi bagian dari cerita indah ini. Semoga setiap hari selalu punya alasan untuk tersenyum dan menikmati hal-hal kecil yang menyenangkan. 💕"
+        "Terima kasih sudah menjadi bagian dari cerita indah ini. Semoga kamu setiap hari selalu punya alasan untuk tersenyum dan menikmati hal-hal kecil yang menyenangkan. 💕"
     },
 
     {
         type: "letter",
 
         text:
-        "Kalau suatu hari terasa berat, semoga pesan kecil ini bisa membuat harimu sedikit lebih ringan. Jangan lupa istirahat dan nikmati hari ini pelan-pelan. 🌷"
+        "Kalau suatu hari terasa berat, semoga pesan kecil ini bisa membuat harimu sedikit lebih ringan. Jangan lupa istirahat dan berpikir positif yahh sayangku. 🌷"
     },
 
     {
@@ -2032,18 +2138,16 @@ const prizes = [
 
 
 /* =========================================================
-   WARNA LOVE
+   WARNA
 ========================================================= */
 
 const colors = [
-
     "pink",
     "purple",
     "blue",
     "yellow",
     "mint",
     "red"
-
 ];
 
 
@@ -2119,8 +2223,8 @@ function createBalls() {
                 "ball " +
                 colors[
                     Math.floor(
-                        Math.random() *
-                        colors.length
+                        Math.random()
+                        * colors.length
                     )
                 ];
 
@@ -2167,7 +2271,7 @@ function wait(ms) {
 
 
 /* =========================================================
-   MOVE CARRIAGE
+   MOVE
 ========================================================= */
 
 function moveCarriage(
@@ -2211,9 +2315,7 @@ function findNearestBall() {
 
 
     if (!loves.length) {
-
         return null;
-
     }
 
 
@@ -2294,11 +2396,30 @@ function findNearestBall() {
 
 async function lowerClaw() {
 
-    claw.style.top =
-        "305px";
+    const isMobile =
+        window.innerWidth <= 650;
 
-    rope.style.height =
-        "275px";
+
+    if (isMobile) {
+
+        claw.style.top =
+            "205px";
+
+        rope.style.height =
+            "175px";
+
+    }
+
+    else {
+
+        claw.style.top =
+            "305px";
+
+        rope.style.height =
+            "275px";
+
+    }
+
 
     await wait(700);
 
@@ -2311,11 +2432,30 @@ async function lowerClaw() {
 
 async function raiseClaw() {
 
-    claw.style.top =
-        "87px";
+    const isMobile =
+        window.innerWidth <= 650;
 
-    rope.style.height =
-        "60px";
+
+    if (isMobile) {
+
+        claw.style.top =
+            "70px";
+
+        rope.style.height =
+            "45px";
+
+    }
+
+    else {
+
+        claw.style.top =
+            "87px";
+
+        rope.style.height =
+            "60px";
+
+    }
+
 
     await wait(700);
 
@@ -2323,7 +2463,7 @@ async function raiseClaw() {
 
 
 /* =========================================================
-   GRAB LOVE
+   GRAB
 ========================================================= */
 
 async function grabBall() {
@@ -2488,7 +2628,7 @@ async function grabBall() {
 
 
 /* =========================================================
-   DROP LOVE
+   DROP
 ========================================================= */
 
 async function dropBall() {
@@ -2605,7 +2745,7 @@ function showPrize(prize) {
 
 
 /* =========================================================
-   SHOW LETTER
+   LETTER
 ========================================================= */
 
 function showLetter(text) {
@@ -2619,6 +2759,7 @@ function showLetter(text) {
         <p>
             Klik amplopnya untuk membuka.
         </p>
+
 
         <div
             class="envelope-wrapper"
@@ -2702,7 +2843,7 @@ function showLetter(text) {
 
 
 /* =========================================================
-   SHOW PHOTO
+   PHOTO
 ========================================================= */
 
 function showPhoto(image) {
@@ -2743,7 +2884,7 @@ function showPhoto(image) {
 
 
 /* =========================================================
-   SHOW ZONK
+   ZONK
 ========================================================= */
 
 function showZonk() {
@@ -2864,7 +3005,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   TANGGAL LAHIR / MUSIK
+   BIRTH DATE
 ========================================================= */
 
 const birthGate =
@@ -2893,31 +3034,25 @@ const bgMusic =
     );
 
 
-/*
+/* =========================================================
    TANGGAL YANG BENAR
-
-   09 April 2005
-*/
+========================================================= */
 
 const correctBirthDate =
     "2005-04-09";
 
 
 /* =========================================================
-   MASUK KE GAME
+   MASUK GAME
 ========================================================= */
 
 startGame.addEventListener(
     "click",
-    function () {
+    function() {
 
         const enteredDate =
             birthDate.value;
 
-
-        /*
-           Belum mengisi tanggal
-        */
 
         if (!enteredDate) {
 
@@ -2928,10 +3063,6 @@ startGame.addEventListener(
 
         }
 
-
-        /*
-           Tanggal salah
-        */
 
         if (
             enteredDate !==
@@ -2948,32 +3079,25 @@ startGame.addEventListener(
         }
 
 
-        /*
-           TANGGAL BENAR
-        */
-
-        birthError.textContent = "";
+        birthError.textContent =
+            "";
 
 
-        /*
-           Mulai musik
-        */
+        bgMusic.currentTime =
+            0;
 
-        bgMusic.currentTime = 0;
+        bgMusic.play()
+            .catch(
+                () => {}
+            );
 
-        bgMusic.play();
-
-
-        /*
-           Hilangkan layar tanggal
-        */
 
         birthGate.style.opacity =
             "0";
 
 
         setTimeout(
-            function () {
+            function() {
 
                 birthGate.style.display =
                     "none";
@@ -2983,10 +3107,6 @@ startGame.addEventListener(
         );
 
 
-        /*
-           Buat love
-        */
-
         createBalls();
 
     }
@@ -2995,6 +3115,4 @@ startGame.addEventListener(
 </script>
 
 </body>
-
 </html>
-```
