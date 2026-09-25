@@ -1,0 +1,3000 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Love Claw Machine 💕</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+
+    min-height: 100vh;
+
+    padding: 20px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #fff5fb 0%,
+            #eadcf5 45%,
+            #bca6d5 100%
+        );
+
+    color: #4e3458;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   GAME
+========================================================= */
+
+.game {
+
+    width: min(
+        1000px,
+        100%
+    );
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.title h1 {
+
+    margin: 0;
+
+    font-size:
+        clamp(
+            28px,
+            5vw,
+            48px
+        );
+
+    font-weight: 900;
+
+    color: #803f8d;
+
+    text-shadow:
+        0 4px white,
+        0 7px 15px
+        rgba(70,30,80,.15);
+}
+
+.title p {
+
+    margin:
+        8px 0 18px;
+
+    font-size: 15px;
+
+    color: #684d70;
+}
+
+
+/* =========================================================
+   MACHINE
+========================================================= */
+
+.machine {
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 18px;
+
+    border:
+        8px solid #63386e;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8acd1 0%,
+            #d86ba7 50%,
+            #8d4b91 100%
+        );
+
+    box-shadow:
+
+        0 25px 55px
+        rgba(54,28,70,.35),
+
+        inset 0 0 20px
+        rgba(255,255,255,.3);
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee {
+
+    position: relative;
+
+    height: 78px;
+
+    margin-bottom: 12px;
+
+    border:
+        5px solid #6b3b78;
+
+    border-radius:
+        18px;
+
+    background:
+        linear-gradient(
+            #fff8fc,
+            #ffc5e2
+        );
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    overflow: hidden;
+}
+
+.marquee span {
+
+    font-size:
+        clamp(
+            22px,
+            4vw,
+            38px
+        );
+
+    font-weight: 900;
+
+    color: #a23978;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 2px white;
+}
+
+
+/* =========================================================
+   WINDOW
+========================================================= */
+
+.window {
+
+    position: relative;
+
+    height: 540px;
+
+    overflow: hidden;
+
+    border:
+        6px solid #5d3769;
+
+    border-radius:
+        18px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.65),
+            rgba(255,255,255,.15)
+        ),
+
+        #e8dcef;
+
+    box-shadow:
+
+        inset 0 0 45px
+        rgba(70,35,90,.25);
+}
+
+
+.window::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -40%;
+
+    left: 8%;
+
+    width: 100px;
+
+    height: 180%;
+
+    background:
+        rgba(255,255,255,.16);
+
+    transform:
+        rotate(15deg);
+
+    z-index: 100;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   RAIL
+========================================================= */
+
+.rail {
+
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+
+    top: 28px;
+
+    height: 14px;
+
+    border-radius: 20px;
+
+    background:
+
+        linear-gradient(
+            #888,
+            #333
+        );
+
+    box-shadow:
+
+        0 4px 7px
+        rgba(0,0,0,.3);
+
+    z-index: 30;
+}
+
+
+/* =========================================================
+   CARRIAGE
+========================================================= */
+
+.carriage {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 7%;
+
+    width: 78px;
+
+    height: 110px;
+
+    z-index: 45;
+
+    transition:
+
+        left .45s
+        cubic-bezier(
+            .4,
+            0,
+            .2,
+            1
+        );
+}
+
+.carriage-body {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 4px;
+
+    width: 70px;
+
+    height: 45px;
+
+    border:
+        4px solid #414141;
+
+    border-radius: 12px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #f4f4f4,
+            #999
+        );
+
+    box-shadow:
+
+        0 5px 8px
+        rgba(0,0,0,.25);
+}
+
+.wheel {
+
+    position: absolute;
+
+    top: 14px;
+
+    width: 19px;
+
+    height: 19px;
+
+    border:
+        3px solid #111;
+
+    border-radius: 50%;
+
+    background: #333;
+}
+
+.wheel.left {
+
+    left: -9px;
+}
+
+.wheel.right {
+
+    right: -9px;
+}
+
+
+/* =========================================================
+   ROPE
+========================================================= */
+
+.rope {
+
+    position: absolute;
+
+    left: 35px;
+
+    top: 41px;
+
+    width: 8px;
+
+    height: 60px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #555,
+            #ddd,
+            #555
+        );
+
+    transition:
+
+        height .7s
+        cubic-bezier(
+            .4,
+            0,
+            .2,
+            1
+        );
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   CLAW
+========================================================= */
+
+.claw {
+
+    position: absolute;
+
+    left: 1px;
+
+    top: 87px;
+
+    width: 78px;
+
+    height: 115px;
+
+    transition:
+
+        top .7s
+        cubic-bezier(
+            .4,
+            0,
+            .2,
+            1
+        );
+
+    z-index: 50;
+}
+
+.claw-head {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 19px;
+
+    width: 40px;
+
+    height: 30px;
+
+    border:
+        4px solid #444;
+
+    border-radius:
+        50% 50% 40% 40%;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #eee,
+            #777
+        );
+
+    z-index: 20;
+}
+
+.finger {
+
+    position: absolute;
+
+    top: 23px;
+
+    width: 18px;
+
+    height: 67px;
+
+    border:
+        4px solid #444;
+
+    border-radius:
+        10px 10px 20px 20px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #777,
+            #eee,
+            #666
+        );
+
+    transform-origin:
+        top center;
+
+    transition:
+        transform .3s;
+
+    z-index: 18;
+}
+
+.finger.left {
+
+    left: 13px;
+
+    transform:
+        rotate(26deg);
+}
+
+.finger.right {
+
+    right: 13px;
+
+    transform:
+        rotate(-26deg);
+}
+
+.claw.closed .finger.left {
+
+    transform:
+        rotate(5deg);
+}
+
+.claw.closed .finger.right {
+
+    transform:
+        rotate(-5deg);
+}
+
+
+/* =========================================================
+   LOVE
+========================================================= */
+
+#ballPit {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 10;
+}
+
+.ball {
+
+    position: absolute;
+
+    width: 105px;
+
+    height: 105px;
+
+    background:
+        #f04d98;
+
+    transform:
+        rotate(-45deg);
+
+    border-radius:
+        12px 0 12px 0;
+
+    border:
+        4px solid
+        rgba(255,255,255,.85);
+
+    box-shadow:
+
+        inset -13px -15px 18px
+        rgba(0,0,0,.18),
+
+        inset 10px 9px 16px
+        rgba(255,255,255,.5),
+
+        0 8px 15px
+        rgba(0,0,0,.30);
+
+    z-index: 12;
+}
+
+.ball::before,
+.ball::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 105px;
+
+    height: 105px;
+
+    border-radius: 50%;
+
+    background:
+        inherit;
+}
+
+.ball::before {
+
+    top: -52px;
+
+    left: 0;
+}
+
+.ball::after {
+
+    top: 0;
+
+    left: 52px;
+}
+
+
+/* =========================================================
+   WARNA LOVE
+========================================================= */
+
+.pink {
+    background: #f04d98;
+}
+
+.purple {
+    background: #9b59d0;
+}
+
+.blue {
+    background: #45a9df;
+}
+
+.yellow {
+    background: #efbd35;
+}
+
+.mint {
+    background: #42bd9d;
+}
+
+.red {
+    background: #df405d;
+}
+
+
+/* =========================================================
+   LOVE DI CAPIT
+========================================================= */
+
+.claw .ball {
+
+    position:
+        absolute !important;
+
+    left:
+        50% !important;
+
+    top:
+        55px !important;
+
+    bottom:
+        auto !important;
+
+    width:
+        105px;
+
+    height:
+        105px;
+
+    transform:
+        translateX(-50%)
+        rotate(-45deg);
+
+    z-index: 8;
+}
+
+
+/* =========================================================
+   PRIZE BOX
+========================================================= */
+
+.chute {
+
+    position: absolute;
+
+    right: 20px;
+
+    bottom: 35px;
+
+    width: 175px;
+
+    height: 120px;
+
+    border:
+        5px solid #6e5677;
+
+    border-radius:
+        15px 15px 27px 27px;
+
+    background:
+
+        linear-gradient(
+            #44364b,
+            #151118
+        );
+
+    z-index: 28;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        flex-end;
+
+    padding-bottom: 12px;
+
+    color:
+        #ffcce7;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.chute::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 16px;
+
+    right: 16px;
+
+    top: 13px;
+
+    height: 55px;
+
+    border-radius: 8px;
+
+    background:
+        #080609;
+}
+
+
+/* =========================================================
+   FLOOR
+========================================================= */
+
+.floor {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 35px;
+
+    background:
+
+        linear-gradient(
+            #8d5d94,
+            #57365e
+        );
+
+    z-index: 25;
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.controls {
+
+    margin-top: 14px;
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    background:
+
+        linear-gradient(
+            #74477d,
+            #50325b
+        );
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+button {
+
+    border: none;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-weight: 900;
+
+    border-radius: 14px;
+}
+
+button:active {
+
+    transform:
+        scale(.93);
+}
+
+.move {
+
+    width: 65px;
+
+    height: 54px;
+
+    font-size: 25px;
+
+    background:
+
+        linear-gradient(
+            #ae84c8,
+            #754793
+        );
+
+    box-shadow:
+        0 5px 0 #432653;
+}
+
+.grab {
+
+    min-width: 165px;
+
+    height: 60px;
+
+    font-size: 17px;
+
+    background:
+
+        linear-gradient(
+            #ff78b9,
+            #d72e88
+        );
+
+    box-shadow:
+        0 5px 0 #8e205c;
+}
+
+.status {
+
+    width: 100%;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+.status span {
+
+    color: #ffe0f0;
+}
+
+.message {
+
+    min-height: 25px;
+
+    margin-top: 12px;
+
+    color: #69376f;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   POPUP
+========================================================= */
+
+.popup {
+
+    position: fixed;
+
+    inset: 0;
+
+    padding: 20px;
+
+    background:
+        rgba(37,20,48,.78);
+
+    display: none;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    z-index: 500;
+}
+
+.popup.show {
+
+    display: flex;
+}
+
+.popup-box {
+
+    width:
+        min(
+            520px,
+            100%
+        );
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    padding: 28px;
+
+    border-radius: 26px;
+
+    background:
+
+        linear-gradient(
+            #fff,
+            #fff3fa
+        );
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(0,0,0,.4);
+
+    text-align: center;
+
+    animation:
+
+        popupIn .45s
+        cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        );
+}
+
+@keyframes popupIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.6)
+            translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope-wrapper {
+
+    position: relative;
+
+    width: 370px;
+
+    max-width: 100%;
+
+    height: 420px;
+
+    margin:
+        15px auto 20px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        flex-end;
+}
+
+
+/* =========================================================
+   KERTAS SURAT
+========================================================= */
+
+.letter-paper {
+
+    position: absolute;
+
+    left: 25px;
+
+    right: 25px;
+
+    bottom: 95px;
+
+    min-height: 220px;
+
+    max-height: 290px;
+
+    padding:
+        25px 24px;
+
+    border-radius: 8px;
+
+    border:
+        1px solid #ead6e1;
+
+    background:
+
+        linear-gradient(
+            #ffffff,
+            #fff8fc
+        );
+
+    box-shadow:
+
+        0 5px 15px
+        rgba(0,0,0,.16);
+
+    text-align: left;
+
+    overflow-y: auto;
+
+    z-index: 1;
+
+    transform:
+        translateY(100px);
+
+    transition:
+
+        transform .9s
+        cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        );
+}
+
+.letter-paper h3 {
+
+    margin:
+        0 0 14px;
+
+    color:
+        #b13c76;
+
+    font-size:
+        19px;
+}
+
+.letter-paper p {
+
+    margin: 0;
+
+    color:
+        #554050;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.65;
+}
+
+
+/* =========================================================
+   AMPLOP
+========================================================= */
+
+.envelope {
+
+    position: absolute;
+
+    left: 10px;
+
+    right: 10px;
+
+    bottom: 20px;
+
+    height: 225px;
+
+    border:
+        4px solid #b95688;
+
+    border-radius: 10px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #ffdceb,
+            #efa4c6
+        );
+
+    box-shadow:
+
+        0 12px 20px
+        rgba(90,35,75,.25);
+
+    z-index: 3;
+}
+
+.envelope-left {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        170px solid #e58db5;
+
+    border-top:
+        112px solid transparent;
+
+    z-index: 4;
+}
+
+.envelope-right {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-right:
+        170px solid #e58db5;
+
+    border-top:
+        112px solid transparent;
+
+    z-index: 4;
+}
+
+.envelope-flap {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        170px solid transparent;
+
+    border-right:
+        170px solid transparent;
+
+    border-top:
+        128px solid #f2a1c3;
+
+    transform-origin:
+        top center;
+
+    transition:
+
+        transform .8s
+        cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        );
+
+    z-index: 7;
+}
+
+.envelope-heart {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 75px;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 29px;
+
+    color: #b94478;
+
+    z-index: 8;
+
+    transition:
+        opacity .3s;
+}
+
+
+/* =========================================================
+   SURAT DIBUKA
+========================================================= */
+
+.envelope-wrapper.open
+.letter-paper {
+
+    transform:
+        translateY(-90px);
+
+    z-index: 8;
+}
+
+.envelope-wrapper.open
+.envelope-flap {
+
+    transform:
+        rotateX(180deg);
+}
+
+.envelope-wrapper.open
+.envelope-heart {
+
+    opacity: 0;
+}
+
+
+/* =========================================================
+   FOTO
+========================================================= */
+
+.photo {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 400px;
+
+    object-fit: contain;
+
+    margin:
+        15px auto;
+
+    border-radius: 15px;
+
+    box-shadow:
+
+        0 8px 20px
+        rgba(0,0,0,.25);
+}
+
+
+/* =========================================================
+   ZONK
+========================================================= */
+
+.zonk {
+
+    font-size: 105px;
+
+    animation:
+        shake .4s
+        infinite alternate;
+}
+
+@keyframes shake {
+
+    from {
+        transform:
+            rotate(-8deg);
+    }
+
+    to {
+        transform:
+            rotate(8deg);
+    }
+}
+
+.close-btn {
+
+    padding:
+        13px 30px;
+
+    background:
+
+        linear-gradient(
+            #ed69aa,
+            #c32b79
+        );
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   BIRTH DATE LOCK
+========================================================= */
+
+.birth-gate {
+
+    position: fixed;
+
+    inset: 0;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    padding: 20px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 20%,
+            #fff5fb 0%,
+            #e7c9e9 55%,
+            #9b6aa8 100%
+        );
+
+    z-index: 9999;
+
+    transition:
+        opacity .5s ease;
+}
+
+.birth-card {
+
+    width:
+        min(
+            430px,
+            100%
+        );
+
+    padding:
+        38px 30px;
+
+    border-radius:
+        28px;
+
+    background:
+        rgba(255,255,255,.97);
+
+    box-shadow:
+        0 25px 70px
+        rgba(65,30,75,.3);
+
+    text-align:
+        center;
+}
+
+.birth-heart {
+
+    font-size:
+        70px;
+
+    margin-bottom:
+        8px;
+
+    animation:
+        birthBeat 1.3s infinite;
+}
+
+.birth-card h1 {
+
+    margin:
+        0 0 10px;
+
+    color:
+        #9b3f78;
+
+    font-size:
+        30px;
+}
+
+.birth-card p {
+
+    margin:
+        0 0 22px;
+
+    color:
+        #684d70;
+
+    line-height:
+        1.5;
+}
+
+.birth-card label {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        #71436f;
+
+    font-weight:
+        bold;
+}
+
+.birth-card input {
+
+    width:
+        100%;
+
+    padding:
+        14px;
+
+    border:
+        2px solid #e2a4c7;
+
+    border-radius:
+        12px;
+
+    background:
+        #fff8fc;
+
+    color:
+        #573b58;
+
+    font-size:
+        16px;
+
+    outline:
+        none;
+}
+
+.birth-card input:focus {
+
+    border-color:
+        #c75591;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(199,85,145,.15);
+}
+
+.start-game {
+
+    width:
+        100%;
+
+    margin-top:
+        18px;
+
+    padding:
+        15px;
+
+    border:
+        none;
+
+    border-radius:
+        14px;
+
+    background:
+        linear-gradient(
+            #ff78b9,
+            #d72e88
+        );
+
+    color:
+        white;
+
+    font-size:
+        16px;
+
+    font-weight:
+        900;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 5px 0 #8e205c;
+}
+
+.start-game:active {
+
+    transform:
+        translateY(3px);
+
+    box-shadow:
+        0 2px 0 #8e205c;
+}
+
+.birth-error {
+
+    min-height:
+        22px;
+
+    margin-top:
+        12px;
+
+    color:
+        #d04a71;
+
+    font-size:
+        14px;
+
+    font-weight:
+        bold;
+}
+
+@keyframes birthBeat {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.12);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    body {
+
+        padding: 8px;
+    }
+
+    .machine {
+
+        padding: 9px;
+
+        border-width: 5px;
+    }
+
+    .window {
+
+        height: 470px;
+    }
+
+    .ball {
+
+        width: 78px;
+
+        height: 78px;
+    }
+
+    .ball::before,
+    .ball::after {
+
+        width: 78px;
+
+        height: 78px;
+    }
+
+    .ball::before {
+
+        top: -39px;
+    }
+
+    .ball::after {
+
+        left: 39px;
+    }
+
+    .claw .ball {
+
+        width: 78px;
+
+        height: 78px;
+    }
+
+    .chute {
+
+        width: 125px;
+
+        height: 90px;
+
+        right: 8px;
+    }
+
+    .envelope-wrapper {
+
+        width: 320px;
+
+        height: 400px;
+    }
+
+    .envelope {
+
+        left: 5px;
+
+        right: 5px;
+    }
+
+    .envelope-flap {
+
+        border-left-width:
+            151px;
+
+        border-right-width:
+            151px;
+    }
+
+    .envelope-left {
+
+        border-left-width:
+            151px;
+    }
+
+    .envelope-right {
+
+        border-right-width:
+            151px;
+    }
+
+    .letter-paper {
+
+        left: 18px;
+
+        right: 18px;
+
+        max-height: 280px;
+
+        padding: 20px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     MUSIK
+========================================================= -->
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- =========================================================
+     BIRTH DATE LOCK
+========================================================= -->
+
+<div
+    class="birth-gate"
+    id="birthGate"
+>
+
+    <div class="birth-card">
+
+        <div class="birth-heart">
+            💕
+        </div>
+
+        <h1>
+            Welcome!
+        </h1>
+
+        <p>
+            Sebelum bermain di<br>
+            <strong>Love Claw Machine</strong><br>
+            masukkan tanggal lahir dulu 🎂
+        </p>
+
+        <label for="birthDate">
+            Tanggal Lahir
+        </label>
+
+        <input
+            type="date"
+            id="birthDate"
+        >
+
+        <div
+            class="birth-error"
+            id="birthError">
+        </div>
+
+        <button
+            class="start-game"
+            id="startGame">
+
+            💕 MASUK &amp; MAIN
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     GAME
+========================================================= -->
+
+<div class="game">
+
+
+    <div class="title">
+
+        <h1>
+            💕 LOVE CLAW MACHINE 💕
+        </h1>
+
+        <p>
+            Ambil love dan temukan hadiah rahasianya!
+        </p>
+
+    </div>
+
+
+    <div class="machine">
+
+
+        <div class="marquee">
+
+            <span>
+                ♥ OUR LOVE ARCADE ♥
+            </span>
+
+        </div>
+
+
+        <div
+            class="window"
+            id="window"
+        >
+
+
+            <div class="rail"></div>
+
+
+            <div id="ballPit"></div>
+
+
+            <div
+                class="carriage"
+                id="carriage"
+            >
+
+                <div class="carriage-body"></div>
+
+                <div class="wheel left"></div>
+
+                <div class="wheel right"></div>
+
+                <div
+                    class="rope"
+                    id="rope">
+                </div>
+
+
+                <div
+                    class="claw"
+                    id="claw"
+                >
+
+                    <div class="claw-head"></div>
+
+                    <div class="finger left"></div>
+
+                    <div class="finger right"></div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="chute"
+                id="chute">
+
+                PRIZE BOX
+
+            </div>
+
+
+            <div class="floor"></div>
+
+        </div>
+
+
+        <div class="controls">
+
+
+            <button
+                class="move"
+                id="leftBtn">
+
+                ◀
+
+            </button>
+
+
+            <button
+                class="grab"
+                id="grabBtn">
+
+                ❤️ AMBIL LOVE
+
+            </button>
+
+
+            <button
+                class="move"
+                id="rightBtn">
+
+                ▶
+
+            </button>
+
+
+            <div class="status">
+
+                Kesempatan:
+
+                <span id="chance">
+                    10
+                </span>
+
+                &nbsp; | &nbsp;
+
+                Hadiah:
+
+                <span id="score">
+                    0
+                </span>
+
+                / 10
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="message"
+            id="message">
+
+            Geser capit lalu tekan
+            AMBIL LOVE ❤️
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     POPUP
+========================================================= -->
+
+<div
+    class="popup"
+    id="popup">
+
+    <div
+        class="popup-box"
+        id="popupBox">
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   ELEMENT
+========================================================= */
+
+const windowEl =
+    document.getElementById("window");
+
+const ballPit =
+    document.getElementById("ballPit");
+
+const carriage =
+    document.getElementById("carriage");
+
+const claw =
+    document.getElementById("claw");
+
+const rope =
+    document.getElementById("rope");
+
+const chute =
+    document.getElementById("chute");
+
+const leftBtn =
+    document.getElementById("leftBtn");
+
+const rightBtn =
+    document.getElementById("rightBtn");
+
+const grabBtn =
+    document.getElementById("grabBtn");
+
+const chanceText =
+    document.getElementById("chance");
+
+const scoreText =
+    document.getElementById("score");
+
+const message =
+    document.getElementById("message");
+
+const popup =
+    document.getElementById("popup");
+
+const popupBox =
+    document.getElementById("popupBox");
+
+
+/* =========================================================
+   HADIAH
+========================================================= */
+
+const prizes = [
+
+    {
+        type: "letter",
+
+        text:
+        "Terima kasih sudah menjadi bagian dari cerita indah ini. Semoga setiap hari selalu punya alasan untuk tersenyum dan menikmati hal-hal kecil yang menyenangkan. 💕"
+    },
+
+    {
+        type: "letter",
+
+        text:
+        "Kalau suatu hari terasa berat, semoga pesan kecil ini bisa membuat harimu sedikit lebih ringan. Jangan lupa istirahat dan nikmati hari ini pelan-pelan. 🌷"
+    },
+
+    {
+        type: "letter",
+
+        text:
+        "Hadiah ini memang sederhana, tetapi semoga bisa menjadi pengingat bahwa ada banyak hal baik yang layak disyukuri. Semoga hari-harimu selalu dipenuhi cerita menyenangkan. 💌"
+    },
+
+    {
+        type: "photo",
+        image: "foto1.jpg"
+    },
+
+    {
+        type: "photo",
+        image: "foto2.jpg"
+    },
+
+    {
+        type: "photo",
+        image: "foto3.jpg"
+    },
+
+    {
+        type: "photo",
+        image: "foto4.jpg"
+    },
+
+    {
+        type: "photo",
+        image: "foto5.jpg"
+    },
+
+    {
+        type: "zonk"
+    },
+
+    {
+        type: "zonk"
+    }
+
+];
+
+
+/* =========================================================
+   WARNA LOVE
+========================================================= */
+
+const colors = [
+
+    "pink",
+    "purple",
+    "blue",
+    "yellow",
+    "mint",
+    "red"
+
+];
+
+
+/* =========================================================
+   VARIABLE
+========================================================= */
+
+let carriageX = 7;
+
+let chances = 10;
+
+let score = 0;
+
+let busy = false;
+
+
+/* =========================================================
+   SHUFFLE
+========================================================= */
+
+function shuffle(array) {
+
+    return array.sort(
+        () =>
+            Math.random() - 0.5
+    );
+
+}
+
+
+/* =========================================================
+   CREATE LOVE
+========================================================= */
+
+function createBalls() {
+
+    ballPit.innerHTML = "";
+
+    const shuffled =
+        shuffle([...prizes]);
+
+
+    const positions = [
+
+        [5, 25],
+        [25, 25],
+        [45, 25],
+        [65, 25],
+        [84, 25],
+
+        [14, 115],
+        [33, 115],
+        [52, 115],
+        [71, 115],
+        [86, 115]
+
+    ];
+
+
+    positions.forEach(
+        (
+            position,
+            index
+        ) => {
+
+            const love =
+                document.createElement(
+                    "div"
+                );
+
+
+            love.className =
+                "ball " +
+                colors[
+                    Math.floor(
+                        Math.random() *
+                        colors.length
+                    )
+                ];
+
+
+            love.dataset.prize =
+                JSON.stringify(
+                    shuffled[index]
+                );
+
+
+            love.style.left =
+                position[0] + "%";
+
+
+            love.style.bottom =
+                position[1] + "px";
+
+
+            ballPit.appendChild(
+                love
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   WAIT
+========================================================= */
+
+function wait(ms) {
+
+    return new Promise(
+        resolve =>
+            setTimeout(
+                resolve,
+                ms
+            )
+    );
+
+}
+
+
+/* =========================================================
+   MOVE CARRIAGE
+========================================================= */
+
+function moveCarriage(
+    direction
+) {
+
+    if (busy) return;
+
+
+    carriageX +=
+        direction * 5;
+
+
+    carriageX =
+        Math.max(
+            4,
+            Math.min(
+                87,
+                carriageX
+            )
+        );
+
+
+    carriage.style.left =
+        carriageX + "%";
+
+}
+
+
+/* =========================================================
+   FIND LOVE
+========================================================= */
+
+function findNearestBall() {
+
+    const loves = [
+        ...document.querySelectorAll(
+            "#ballPit .ball"
+        )
+    ];
+
+
+    if (!loves.length) {
+
+        return null;
+
+    }
+
+
+    const windowRect =
+        windowEl.getBoundingClientRect();
+
+
+    const clawRect =
+        claw.getBoundingClientRect();
+
+
+    const clawCenter =
+        clawRect.left -
+        windowRect.left +
+        clawRect.width / 2;
+
+
+    let nearest = null;
+
+    let nearestDistance =
+        Infinity;
+
+
+    loves.forEach(
+        love => {
+
+            const rect =
+                love.getBoundingClientRect();
+
+
+            const loveCenter =
+                rect.left -
+                windowRect.left +
+                rect.width / 2;
+
+
+            const distance =
+                Math.abs(
+                    loveCenter -
+                    clawCenter
+                );
+
+
+            if (
+                distance <
+                nearestDistance
+            ) {
+
+                nearestDistance =
+                    distance;
+
+                nearest =
+                    love;
+
+            }
+
+        }
+    );
+
+
+    if (
+        nearestDistance <= 78
+    ) {
+
+        return nearest;
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   LOWER CLAW
+========================================================= */
+
+async function lowerClaw() {
+
+    claw.style.top =
+        "305px";
+
+    rope.style.height =
+        "275px";
+
+    await wait(700);
+
+}
+
+
+/* =========================================================
+   RAISE CLAW
+========================================================= */
+
+async function raiseClaw() {
+
+    claw.style.top =
+        "87px";
+
+    rope.style.height =
+        "60px";
+
+    await wait(700);
+
+}
+
+
+/* =========================================================
+   GRAB LOVE
+========================================================= */
+
+async function grabBall() {
+
+    if (busy) return;
+
+
+    if (chances <= 0) {
+
+        message.textContent =
+            "Kesempatan sudah habis 💕";
+
+        return;
+
+    }
+
+
+    const remaining =
+        document.querySelectorAll(
+            "#ballPit .ball"
+        ).length;
+
+
+    if (remaining === 0) {
+
+        message.textContent =
+            "Semua love sudah diambil! ❤️";
+
+        return;
+
+    }
+
+
+    busy = true;
+
+
+    chances--;
+
+    chanceText.textContent =
+        chances;
+
+
+    message.textContent =
+        "Capit sedang turun...";
+
+
+    await lowerClaw();
+
+
+    const love =
+        findNearestBall();
+
+
+    claw.classList.add(
+        "closed"
+    );
+
+
+    await wait(350);
+
+
+    if (!love) {
+
+        message.textContent =
+            "Yahh... capitnya meleset 😭";
+
+
+        claw.classList.remove(
+            "closed"
+        );
+
+
+        await raiseClaw();
+
+
+        busy = false;
+
+        return;
+
+    }
+
+
+    const prize =
+        JSON.parse(
+            love.dataset.prize
+        );
+
+
+    love.remove();
+
+
+    claw.appendChild(
+        love
+    );
+
+
+    love.style.position =
+        "absolute";
+
+    love.style.left =
+        "50%";
+
+    love.style.top =
+        "55px";
+
+    love.style.bottom =
+        "auto";
+
+    love.style.transform =
+        "translateX(-50%) rotate(-45deg)";
+
+
+    score++;
+
+    scoreText.textContent =
+        score;
+
+
+    message.textContent =
+        "Dapat! ❤️ Love ikut terangkat!";
+
+
+    await wait(350);
+
+
+    await raiseClaw();
+
+
+    message.textContent =
+        "Membawa love ke kotak hadiah... 🎁";
+
+
+    carriageX = 78;
+
+    carriage.style.left =
+        "78%";
+
+
+    await wait(750);
+
+
+    claw.classList.remove(
+        "closed"
+    );
+
+
+    await wait(350);
+
+
+    await dropBall();
+
+
+    await wait(350);
+
+
+    showPrize(prize);
+
+
+    busy = false;
+
+}
+
+
+/* =========================================================
+   DROP LOVE
+========================================================= */
+
+async function dropBall() {
+
+    const love =
+        claw.querySelector(
+            ".ball"
+        );
+
+
+    if (!love) return;
+
+
+    const clawRect =
+        claw.getBoundingClientRect();
+
+
+    const chuteRect =
+        chute.getBoundingClientRect();
+
+
+    love.style.position =
+        "fixed";
+
+
+    love.style.left =
+        clawRect.left + "px";
+
+
+    love.style.top =
+        (
+            clawRect.top +
+            55
+        ) + "px";
+
+
+    love.style.zIndex =
+        "1000";
+
+
+    document.body.appendChild(
+        love
+    );
+
+
+    await wait(30);
+
+
+    love.style.transition =
+        "all .8s cubic-bezier(.2,.7,.3,1)";
+
+
+    love.style.left =
+        (
+            chuteRect.left +
+            35
+        ) + "px";
+
+
+    love.style.top =
+        (
+            chuteRect.top +
+            15
+        ) + "px";
+
+
+    love.style.transform =
+        "scale(.7) rotate(315deg)";
+
+
+    await wait(800);
+
+
+    love.remove();
+
+}
+
+
+/* =========================================================
+   SHOW PRIZE
+========================================================= */
+
+function showPrize(prize) {
+
+    if (
+        prize.type ===
+        "letter"
+    ) {
+
+        showLetter(
+            prize.text
+        );
+
+    }
+
+    else if (
+        prize.type ===
+        "photo"
+    ) {
+
+        showPhoto(
+            prize.image
+        );
+
+    }
+
+    else {
+
+        showZonk();
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOW LETTER
+========================================================= */
+
+function showLetter(text) {
+
+    popupBox.innerHTML = `
+
+        <h2>
+            💌 Kamu Mendapat Surat!
+        </h2>
+
+        <p>
+            Klik amplopnya untuk membuka.
+        </p>
+
+        <div
+            class="envelope-wrapper"
+            id="envelopeWrapper"
+        >
+
+            <div class="letter-paper">
+
+                <h3>
+                    Untukmu 💕
+                </h3>
+
+                <p>
+                    ${text}
+                </p>
+
+            </div>
+
+
+            <div class="envelope">
+
+                <div
+                    class="envelope-left">
+                </div>
+
+                <div
+                    class="envelope-right">
+                </div>
+
+                <div
+                    class="envelope-flap">
+                </div>
+
+                <div
+                    class="envelope-heart">
+
+                    ♥
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="close-btn"
+            onclick="closePopup()"
+        >
+
+            Tutup 💕
+
+        </button>
+
+    `;
+
+
+    popup.classList.add(
+        "show"
+    );
+
+
+    const wrapper =
+        document.getElementById(
+            "envelopeWrapper"
+        );
+
+
+    wrapper.addEventListener(
+        "click",
+        function() {
+
+            this.classList.toggle(
+                "open"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SHOW PHOTO
+========================================================= */
+
+function showPhoto(image) {
+
+    popupBox.innerHTML = `
+
+        <h2>
+            📸 Kamu Mendapat Foto!
+        </h2>
+
+        <img
+            class="photo"
+            src="${image}"
+            alt="Foto hadiah"
+        >
+
+        <p>
+            ✨ Satu kenangan berhasil ditemukan ✨
+        </p>
+
+        <button
+            class="close-btn"
+            onclick="closePopup()"
+        >
+
+            Tutup 📸
+
+        </button>
+
+    `;
+
+
+    popup.classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   SHOW ZONK
+========================================================= */
+
+function showZonk() {
+
+    popupBox.innerHTML = `
+
+        <div class="zonk">
+            💥
+        </div>
+
+        <h2>
+            ZONK! 😭
+        </h2>
+
+        <p>
+            Yahhh... love ini kosong.
+            <br>
+            Coba ambil love lainnya! ❤️
+        </p>
+
+        <button
+            class="close-btn"
+            onclick="closePopup()"
+        >
+
+            Coba Lagi 🎮
+
+        </button>
+
+    `;
+
+
+    popup.classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE POPUP
+========================================================= */
+
+function closePopup() {
+
+    popup.classList.remove(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+leftBtn.addEventListener(
+    "click",
+    () =>
+        moveCarriage(-1)
+);
+
+
+rightBtn.addEventListener(
+    "click",
+    () =>
+        moveCarriage(1)
+);
+
+
+grabBtn.addEventListener(
+    "click",
+    grabBall
+);
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key ===
+            "ArrowLeft"
+        ) {
+
+            moveCarriage(-1);
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowRight"
+        ) {
+
+            moveCarriage(1);
+
+        }
+
+
+        if (
+            event.key === " " ||
+            event.key === "Enter"
+        ) {
+
+            event.preventDefault();
+
+            grabBall();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   TANGGAL LAHIR / MUSIK
+========================================================= */
+
+const birthGate =
+    document.getElementById(
+        "birthGate"
+    );
+
+const birthDate =
+    document.getElementById(
+        "birthDate"
+    );
+
+const startGame =
+    document.getElementById(
+        "startGame"
+    );
+
+const birthError =
+    document.getElementById(
+        "birthError"
+    );
+
+const bgMusic =
+    document.getElementById(
+        "bgMusic"
+    );
+
+
+/*
+   TANGGAL YANG BENAR
+
+   09 April 2005
+*/
+
+const correctBirthDate =
+    "2005-04-09";
+
+
+/* =========================================================
+   MASUK KE GAME
+========================================================= */
+
+startGame.addEventListener(
+    "click",
+    function () {
+
+        const enteredDate =
+            birthDate.value;
+
+
+        /*
+           Belum mengisi tanggal
+        */
+
+        if (!enteredDate) {
+
+            birthError.textContent =
+                "Masukkan tanggal lahir dulu 💕";
+
+            return;
+
+        }
+
+
+        /*
+           Tanggal salah
+        */
+
+        if (
+            enteredDate !==
+            correctBirthDate
+        ) {
+
+            birthError.textContent =
+                "Tanggal lahir salah 💔 Coba lagi.";
+
+            birthDate.value = "";
+
+            return;
+
+        }
+
+
+        /*
+           TANGGAL BENAR
+        */
+
+        birthError.textContent = "";
+
+
+        /*
+           Mulai musik
+        */
+
+        bgMusic.currentTime = 0;
+
+        bgMusic.play();
+
+
+        /*
+           Hilangkan layar tanggal
+        */
+
+        birthGate.style.opacity =
+            "0";
+
+
+        setTimeout(
+            function () {
+
+                birthGate.style.display =
+                    "none";
+
+            },
+            500
+        );
+
+
+        /*
+           Buat love
+        */
+
+        createBalls();
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
+```
